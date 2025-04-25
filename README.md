@@ -12,13 +12,25 @@ This is  a task manager api web application. It is a task manager where it manag
 7. Run the coomand : ``` python manage.py runserver ``` (If Python 3 exists in env, no problem. Otherwise, use python3). Server gets started
 8. Run the command :  ``` python manage.py makemigrations ```  and  ```python manage.py migrate ``` -- It is for creating tables in database
 
-## Basic usage ##
-Now go to new terminal (with server terminal  running)
+
+## Basic usage 
+
 Here we can use following commands to create , update , list, delete tasks.
- 1.```list ``` : To list the no of tasks present currently.
- 2. ```create  Id  name description ``` : To create the new task 
- 3. ``` update Id```  : To update the new task and make changes to existed record
- 4. ``` delete  Id``` : To delete the task which is not in use.
+1. ``` list ``` : To list the tasks present in database otherwise empty list -> ```[]```
+2. ``` create id name description ``` : To create the new task
+3. ```update id ``` : To update the existed task otherwise  ``` Task doesnt exists ``` error
+4.  ``` delete id ``` : To delete the task
+
+## Examples 
+Now go to new terminal (with server terminal  running)
+Run following commands to test the api :
+1. ``` python cli_tool.py list ``` : This command will list all the tasks present in database.
+   
+
+
+
+
+
 
 
  
