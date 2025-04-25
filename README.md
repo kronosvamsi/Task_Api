@@ -15,9 +15,12 @@ This is  a task manager api web application. It is a task manager where it manag
 ## Basic usage ##
 Now go to new terminal (with server terminal  running)
 Here we can use following commands to create , update , list, delete tasks.
-1.```list ``` : To list the no of tasks present currently.
-2. ```create  Id  name description ``` : To create the new task 
-3. ``` update Id``` : To update the new task and make changes to existed record
-4. ``` delete  Id``` : To delete the task which is not in use.
+ 1.```list ``` : To list the no of tasks present currently.
+ 2. ```create  Id  name description ``` : To create the new task 
+ 3. ``` update Id```  : To update the new task and make changes to existed record
+ 4. ``` delete  Id``` : To delete the task which is not in use.
+
+
+ 
 
 
