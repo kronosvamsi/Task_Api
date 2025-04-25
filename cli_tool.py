@@ -7,14 +7,16 @@ def create_item(id,name, description):
     response = requests.post(f"{BASE_URL}create/", json={'id':id, 'name': name, 'description': description})
     
     if response.status_code == 201:
+        print("res :",response.status_code)
         print("Item created:", response.json())
     else:
         print("Failed to create item:", response.status_code, response.text)
 
 def list_items():
     response = requests.get(f"{BASE_URL}items/")
-    print("res :",response)
+    
     if response.status_code == 200:
+        print("res :",response.status_code)
         items = response.json()
         print("Items:")
         for item in items:
@@ -24,7 +26,9 @@ def list_items():
 
 def update_item(item_id, name, description):
     response = requests.put(f"{BASE_URL}update/{item_id}", json={'name': name, 'description': description})
+    
     if response.status_code == 200:
+        print("res :",response.status_code)
         print("Item updated:", response.json())
     else:
         print("Failed to update item:", response.status_code, response.text)
@@ -32,6 +36,7 @@ def update_item(item_id, name, description):
 def delete_item(item_id):
     response = requests.delete(f"{BASE_URL}delete/{item_id}")
     if response.status_code == 204:
+        print("res :",response.status_code)
         print("Item deleted successfully.")
     else:
         print("Failed to delete item:", response.status_code, response.text)
