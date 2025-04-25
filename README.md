@@ -23,8 +23,32 @@ Here we can use following commands to create , update , list, delete tasks.
 
 ## Examples 
 Now go to new terminal (with server terminal  running)
-Run following commands to test the api :
-1. ``` python cli_tool.py list ``` : This command will list all the tasks present in database.
+
+!["server running"](https://github.com/kronosvamsi/Task_Api/blob/main/static/Screenshot%20from%202025-04-25%2012-50-03.png)
+
+Above shows the image of server terminal. Beside that another terminal opened
+
+Run following commands in other terminal to test the api :
+1. ``` python cli_tool.py list ``` : This command will list all the tasks present in database .
+
+2.  ![ List image](https://github.com/kronosvamsi/Task_Api/blob/main/static/Screenshot%20from%202025-04-25%2012-50-15.png)
+
+3.  ``` python cli_tool.py create id(int) name(str) description(str) ``` : This command will create the new task  and add it to database
+
+4.  ![Add new task](https://github.com/kronosvamsi/Task_Api/blob/main/static/Screenshot%20from%202025-04-25%2013-17-42.png)
+
+5.  ```python cli_tool.py delete id``` : This command will delete the exist task
+
+6.  ![Delete task](https://github.com/kronosvamsi/Task_Api/blob/main/static/Screenshot%20from%202025-04-25%2013-19-22.png)
+
+
+Finally you have the task manager api with cli tool to perform crud operations.You can also see the responses from server
+
+![server response](https://github.com/kronosvamsi/Task_Api/blob/main/static/Screenshot%20from%202025-04-25%2013-20-37.png)
+
+>[!NOTE]
+>An update regarding command response. Now you will get response after succesful exection of command.
+   
    
 
 
