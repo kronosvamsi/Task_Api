@@ -1,22 +1,22 @@
 # Task_Api
-This is  a task manager api web application. We can create ,update, delete the task by using terminal based commands.In general tasks are records with Id,name,description stored in database.
+This is  a task manager cli tool application. By the help of cli tool, we can create ,update, delete the task by using terminal based commands.With the help of cli tool we can directly perform  CRUD operations in terminal. In general tasks are records with Id,name,description stored in database.
 
 ### Set up details
 
 1. Create a new folder with proper name
-2. Open terminal and cd path to created folder path.
+2. In terminal , ```cd folder-path ```.
 3. Create a new python env and activate it. 
-4. Download the repo from url
-5. Install the requirements and dependencies using code: ``` pip install requirements.txt ```
-6. In terminal cd path to root folder(path where manage.py exists)
-7. Run the coomand : ``` python manage.py runserver ``` (If Python 3 exists in env, no problem. Otherwise, use python3). Server gets started
-8. Run the command :  ``` python manage.py makemigrations ```  and  ```python manage.py migrate ``` -- It is for creating tables in database
+4. Download the repo from url [link](https://github.com/kronosvamsi/Task_Api.git)
+5. Install the requirements and dependencies using cmd: ``` pip install requirements.txt ```
+6. Now, ``cd path `` to main folder(path where manage.py exists)
+7. Run the coomand : ``` python manage.py runserver ``` (If Python 3 installed in env, no problem. Otherwise, use python3). Server gets started
+8. Run the command :  ``` python manage.py makemigrations ```  and  ```python manage.py migrate ``` --  For creating tables in database
 
 
 ## Basic usage 
 
 Here we can use following commands to create , update , list, delete tasks.
-1. ``` list ``` : To list the tasks present in database otherwise empty list -> ```[]```
+1. ``` list ``` : To list the tasks present in database if exists,  otherwise empty list show up -> ```[]```
 2. ``` create id name description ``` : To create the new task
 3. ```update id ``` : To update the existed task otherwise  ``` Task doesnt exists ``` error
 4.  ``` delete id ``` : To delete the task
