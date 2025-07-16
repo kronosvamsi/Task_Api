@@ -1,5 +1,5 @@
 # Task_Api
-This is  a task manager api web application. It is a task manager where it manages the task by CRUD operations.In general tasks are records with Id,name,description stored in database.
+This is  a task manager api web application. We can create ,update, delete the task by using terminal based commands.In general tasks are records with Id,name,description stored in database.
 
 ### Set up details
 
