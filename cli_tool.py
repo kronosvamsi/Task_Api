@@ -35,9 +35,12 @@ def list_items():
     if response.status_code == 200:
         print("res :",response.status_code)
         items = response.json()
-        print("Items:")
-        for item in items:
-            print(f"{item['id']}: {item['name']} - {item['description']}")
+        if items.get('note'):
+            print("no items : []")
+        else:
+            print("Items:", items)
+            for item in items:
+                print(f"{item['id']}: {item['name']} - {item['description']}")
     else:
         print("Failed to retrieve items:", response.status_code, response.text)
 
@@ -48,23 +51,27 @@ def update_item(item_id, name, description):
 
     '''
     session = requests.Session()
-    get_res=session.get(f'{BASE_DIR}update/{item_id}')
+    get_res=session.get(f'{BASE_URL}update/{item_id}')
     csrf_token=session.cookies['csrftoken']
     # headers={'HTTP_X_CSRFTOKEN':token, 'Origin':'http://127.0.0.1:8000'}
     headers = {
     'X-CSRFToken': csrf_token,
-    'Referer': f'{BASE_DIR}update/{item_id}',
+    'Referer': f'{BASE_URL}update/{item_id}',
     'Content-Type': 'application/json' 
 }
     # response = requests.put(f"{BASE_URL}update/{item_id}", headers=headers,json={'name': name, 'description': description})
     response = session.put(
-    url= f'{BASE_DIR}update/{item_id}',
+    url= f'{BASE_URL}update/{item_id}',
     json= {'name': name, 'description': description}, 
     headers=headers
     )
     if response.status_code == 200:
         print("res :",response.status_code)
-        print("Item updated:", response.json())
+        content_type=response.headers.get('Content-Type')
+        if "text/html" in content_type:
+            print("Response:",response.content)
+        else:
+            print("Item updated:", response.json())
     else:
         print("Failed to update item:", response.status_code, response.text)
 

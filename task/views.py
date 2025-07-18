@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from django.http import JsonResponse
+from django.http import JsonResponse,HttpResponse
 from .models import Tasks
 from django.core import serializers
 from django.views.decorators.csrf import csrf_exempt
@@ -35,19 +35,24 @@ def update_tasks(request,item_id):
       token=get_token(request)
       return JsonResponse({"csrf_token":token})
    else:
-   
-      data=json.loads(request.body)
-      task_item=Tasks.objects.get(id=item_id)
-      task_item.name=data['name']
-      task_item.description=data['description']
-      task_item.save()
-      return JsonResponse({'id':task_item.id,'name':task_item.name})
+      try:
+         data=json.loads(request.body)
+         task_item=Tasks.objects.get(id=item_id)
+         task_item.name=data['name']
+         task_item.description=data['description']
+         task_item.save()
+         return JsonResponse({'id':task_item.id,'name':task_item.name})
+      except Exception as e:
+         return  HttpResponse(f"Error :${e}")
+
 
 @csrf_exempt
 def delete_task(request, item_id):
+   try:
         item = Tasks.objects.get(id=item_id)
 
         item.delete()
         return JsonResponse({'message': 'Item deleted successfully'}, status=204)
    
-      
+   except Exception as e:
+      return HttpResponse(f"Error:${e}")
