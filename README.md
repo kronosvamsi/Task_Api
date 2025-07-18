@@ -7,7 +7,7 @@ This is  a task manager cli tool application. By the help of cli tool, we can cr
 2. In terminal , ```cd folder-path ```.
 3. Create a new python env and activate it. 
 4. Download the repo from url [link](https://github.com/kronosvamsi/Task_Api.git)
-5. Install the requirements and dependencies using cmd: ``` pip install requirements.txt ```
+5. Install the requirements and dependencies using cmd: ``` pip install -r requirements.txt ```
 6. Now, ``cd path `` to main folder(path where manage.py exists)
 7. Run the coomand : ``` python manage.py runserver ``` (If Python 3 installed in env, no problem. Otherwise, use python3). Server gets started
 8. Run the command :  ``` python manage.py makemigrations ```  and  ```python manage.py migrate ``` --  For creating tables in database
