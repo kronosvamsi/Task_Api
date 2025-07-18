@@ -4,8 +4,25 @@ import requests
 BASE_URL = 'http://127.0.0.1:8000/api/'
 
 def create_item(id,name, description):
-    response = requests.post(f"{BASE_URL}create/", json={'id':id, 'name': name, 'description': description})
-    
+    '''
+    Create the item by sending post request to api endpoint by enabling request library.
+    Mean while csrf token get as cookie by session.
+
+    '''
+    session=requests.session()
+    get_res=session.get(f"{BASE_URL}create/")
+    csrf_token=session.cookies['csrftoken']
+    # response = requests.post(f"{BASE_URL}create/", json={'id':id, 'name': name, 'description': description})
+    headers={
+        'X-CSRFToken': csrf_token,
+    'Referer': f"{BASE_URL}create/",
+    'Content-Type': 'application/json'
+    }
+    response = session.post(
+        url=f"{BASE_URL}create/",
+        json={'id':id, 'name': name, 'description': description},
+        headers=headers
+    )
     if response.status_code == 201:
         print("res :",response.status_code)
         print("Item created:", response.json())
@@ -25,8 +42,26 @@ def list_items():
         print("Failed to retrieve items:", response.status_code, response.text)
 
 def update_item(item_id, name, description):
-    response = requests.put(f"{BASE_URL}update/{item_id}", json={'name': name, 'description': description})
-    
+    '''
+    The item gets updated sending put request to api endpoint by enabling request library.
+    The csrf token get as cookie by session
+
+    '''
+    session = requests.Session()
+    get_res=session.get(f'{BASE_DIR}update/{item_id}')
+    csrf_token=session.cookies['csrftoken']
+    # headers={'HTTP_X_CSRFTOKEN':token, 'Origin':'http://127.0.0.1:8000'}
+    headers = {
+    'X-CSRFToken': csrf_token,
+    'Referer': f'{BASE_DIR}update/{item_id}',
+    'Content-Type': 'application/json' 
+}
+    # response = requests.put(f"{BASE_URL}update/{item_id}", headers=headers,json={'name': name, 'description': description})
+    response = session.put(
+    url= f'{BASE_DIR}update/{item_id}',
+    json= {'name': name, 'description': description}, 
+    headers=headers
+    )
     if response.status_code == 200:
         print("res :",response.status_code)
         print("Item updated:", response.json())
