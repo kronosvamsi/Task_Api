@@ -1,5 +1,5 @@
-# Task_Api
-This is  a task manager cli tool application. By the help of cli tool, we can create ,update, delete the task by using terminal based commands.With the help of cli tool we can directly perform  CRUD operations in terminal. In general tasks are records with Id,name,description stored in database.
+# Task_manage_cli_tool
+This is  a task manager cli tool application. By the help of cli tool, we send HTTP request to Api endpoints to test the response based on request type. Request library used for sending the request. Here terminal based commands wrapped with each request type (GET,POST,PUT, DEL). For example `list` cmd associated with `GET` request. Tested all API endpoints with HTTP request. Also cli tool can directly perform  CRUD operations on sqlite database. In general tasks are records with Id,name,description stored in database.
 
 ### Set up details
 
